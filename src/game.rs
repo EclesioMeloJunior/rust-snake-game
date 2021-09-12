@@ -40,6 +40,8 @@ pub struct Game {
 
     is_game_over: bool,
     waiting_time: f64,
+
+    moving_time: f64,
 }
 
 impl Game {
@@ -52,7 +54,8 @@ impl Game {
             food_y: 3,
             width: width,
             height: height,
-            is_game_over: false
+            is_game_over: false,
+            moving_time: MOVING_PERIOD,
         }
     }
 
@@ -95,6 +98,8 @@ impl Game {
         if self.food_exist && self.food_x == head_x && self.food_y == head_y {
             self.food_exist = false;
             self.snake.restore_last_removed();
+
+            self.moving_time = self.moving_time - 0.025
         }
     }
 
@@ -155,7 +160,7 @@ impl Game {
             self.add_food();
         }
 
-        if self.waiting_time > MOVING_PERIOD {
+        if self.waiting_time > self.moving_time {
             self.update_snake(None);
         }
     }
@@ -167,5 +172,6 @@ impl Game {
         self.food_x = 5;
         self.food_y = 3;
         self.is_game_over = false;
+        self.moving_time = MOVING_PERIOD;
     }
 }

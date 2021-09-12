@@ -24,7 +24,6 @@ fn main() {
     while let Some(event) = window.next() {
 
         if let Some(Button::Keyboard(key)) = event.press_args() {
-            println!("{:?}", key);
             game.key_pressed(key);
         }
 
