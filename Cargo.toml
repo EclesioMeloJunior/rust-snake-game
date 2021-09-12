@@ -1,0 +1,9 @@
+[package]
+name = "rust-snake"
+version = "0.1.0"
+authors = ["Eclesio Melo Junior <eclesiomelo.1@gmail.com>"]
+
+[dependencies]
+#piston_window = "0.74.0"
+piston_window = "0.120.0"
+rand = "0.3"
