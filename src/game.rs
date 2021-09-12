@@ -9,7 +9,7 @@ const FOOD_COLOR: piston_window::types::Color = [0.90, 0.49, 0.13, 1.0];
 const BORDER_COLOR: piston_window::types::Color = [0.741, 0.765, 0.78, 1.0];
 const GAMEOVER_COLOR: piston_window::types::Color = [0.91, 0.30, 0.24, 0.5];
 
-const MOVING_PERIOD: f64 = 0.2;
+const MOVING_PERIOD: f64 = 1.0;
 const RESTART_TIME: f64 = 1.0;
 
 #[derive(Clone, Copy, PartialEq)]

@@ -10,6 +10,7 @@ use drawing::draw_block;
 use game::Direction;
 
 const SNAKE_COLOR: Color = [0.18, 0.80, 0.44, 1.0];
+const SNAKE_HEAD_COLOR: Color = [0.20, 0.01, 0.90, 1.0];
 
 #[derive(Debug, Clone)]
 struct Block {
@@ -48,7 +49,18 @@ impl Snake {
     }
 
     pub fn draw(&self, con: &Context, g: &mut G2d) {
-        for b in &self.body {
+        let mut body_iter = self.body.iter();
+        
+        let head = body_iter.next();
+
+        if head.is_none() {
+            return;
+        }
+
+        let head = head.unwrap();
+        draw_block(SNAKE_HEAD_COLOR, head.x, head.y, con, g);
+        
+        while let Some(b) = body_iter.next() {
             draw_block(SNAKE_COLOR, b.x, b.y, con, g);
         }
     }
