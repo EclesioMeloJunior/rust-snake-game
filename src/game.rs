@@ -99,7 +99,9 @@ impl Game {
             self.food_exist = false;
             self.snake.restore_last_removed();
 
-            self.moving_time = self.moving_time - 0.025
+            if self.moving_time > 0.1 {
+                self.moving_time = self.moving_time - 0.050
+            }
         }
     }
 
